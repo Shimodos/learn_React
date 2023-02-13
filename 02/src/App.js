@@ -36,6 +36,7 @@ class WhoAmI extends Component {
         this.state = {
             years: 27,
             Text: '+++',
+            position: '',
         };
     }
 
@@ -46,16 +47,33 @@ class WhoAmI extends Component {
         }));
     };
 
+    commitInputChanges = (e, color) => {
+        console.log(color);
+        this.setState({
+            position: e.target.value,
+        });
+    };
+
     render() {
         const { name, surname, link } = this.props;
+        const { position, years } = this.state;
         return (
             <div>
                 <button onClick={this.nextYear}>{this.state.Text}</button>
                 <h1>
-                    My name {name} is, surname - {surname}, age -{' '}
-                    {this.state.years}
+                    My name {name} is, surname - {surname}, age - {years},
+                    position - {position}
                 </h1>
                 <a href={link}>My profil</a>
+                <forma>
+                    <span>Введітедолжность</span>
+                    <input
+                        type="text"
+                        onChange={(e) =>
+                            this.commitInputChanges(e, 'some color')
+                        }
+                    />
+                </forma>
             </div>
         );
     }
