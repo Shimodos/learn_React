@@ -3,9 +3,15 @@ import styled from 'styled-components';
 
 import './App.css';
 
+<<<<<<< HEAD
+const Header = () => {
+  return <h2>Hello worls!</h2>;
+};
+=======
 // const Header = () => {
 //   return <h2>Hello worls!</h2>;
 // };
+>>>>>>> c13e541e97a66961bc331a3843a6260556ae49d8
 
 // const Field = () => {
 //     const holder = 'Enter here';
@@ -76,6 +82,35 @@ class WhoAmI extends Component {
       years: state.years + 1,
     }));
   };
+<<<<<<< HEAD
+
+  commitInputChanges = (e, color) => {
+    console.log(color);
+    this.setState({
+      position: e.target.value,
+    });
+  };
+
+  render() {
+    const { name, surname, link } = this.props;
+    const { position, years } = this.state;
+    return (
+      <div>
+        <button onClick={this.nextYear}>{this.state.Text}</button>
+        <h1>
+          My name {name} is, surname - {surname}, age - {years}, position -{' '}
+          {position}
+        </h1>
+        <a href={link}>My profile</a>
+        <forma>
+          <span>Введітедолжность</span>
+          <input
+            type="text"
+            onChange={(e) => this.commitInputChanges(e, 'some color')}
+          />
+        </forma>
+      </div>
+=======
 
   commitInputChanges = (e, color) => {
     console.log(color);
@@ -100,6 +135,7 @@ class WhoAmI extends Component {
           <input type="text" onChange={(e) => this.commitInputChanges(e, 'some color')} />
         </forma>
       </EmpItem>
+>>>>>>> c13e541e97a66961bc331a3843a6260556ae49d8
     );
   }
 }
@@ -111,7 +147,11 @@ const Wrapper = styled.div`
 
 function App() {
   return (
+<<<<<<< HEAD
+    <div className="App">
+=======
     <Wrapper className="App">
+>>>>>>> c13e541e97a66961bc331a3843a6260556ae49d8
       <WhoAmI name="John" surname="Smith" link="facebook.com" />
       <WhoAmI name="Alex" surname="Demchenko" link="twitter.com" />
       {/* <StrictMode>
@@ -119,7 +159,11 @@ function App() {
             </StrictMode> */}
       {/* <Field /> */}
       {/* <Btn /> */}
+<<<<<<< HEAD
+    </div>
+=======
     </Wrapper>
+>>>>>>> c13e541e97a66961bc331a3843a6260556ae49d8
   );
 }
 
