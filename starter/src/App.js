@@ -1,4 +1,4 @@
-import { Component, useState, useCallback, useEffect } from 'react';
+import { Component, useState, useCallback, useEffect, useMemo } from 'react';
 import { Container } from 'react-bootstrap';
 import './App.css';
 // class Slider extends Component {
@@ -57,6 +57,11 @@ const calcValue = () => {
   return Math.random() * (50 - 1) + 1;
 };
 
+const countTotal = (num) => {
+  console.log('counti');
+  return num + 10;
+};
+
 const Slider = (props) => {
   const [slide, setSlide] = useState(calcValue);
   const [autoplay, setAutoplay] = useState(false);
@@ -77,6 +82,21 @@ const Slider = (props) => {
     setAutoplay((autoplay) => !autoplay);
   }
 
+  const total = useMemo(() => {
+    return countTotal(slide);
+  }, [slide]);
+
+  const style = useMemo(
+    () => ({
+      color: slide > 4 ? 'red' : 'black',
+    }),
+    [slide]
+  );
+
+  useEffect(() => {
+    console.log('styles!');
+  }, [style]);
+
   return (
     <Container>
       <div className="slider w-50 m-auto">
@@ -88,6 +108,9 @@ const Slider = (props) => {
 
         <div className="text-center mt-5">
           Active slide {slide} <br /> {autoplay ? 'auto' : null}
+        </div>
+        <div style={style} className="text-center mt-5">
+          Total slides: {total}
         </div>
         <div className="buttons mt-3">
           <button className="btn btn-primary me-2" onClick={() => changeSlide(-1)}>
