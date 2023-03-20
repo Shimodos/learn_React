@@ -1,4 +1,4 @@
-import { Component, useState } from 'react';
+import { Component, useState, useCallback, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import './App.css';
 // class Slider extends Component {
@@ -61,6 +61,14 @@ const Slider = (props) => {
   const [slide, setSlide] = useState(calcValue);
   const [autoplay, setAutoplay] = useState(false);
 
+  const getSomeImage = useCallback(() => {
+    console.log('fetching');
+    return [
+      'https://i.pinimg.com/236x/15/b0/cb/15b0cb2f75a810d45df3b45c69fe98db.jpg',
+      'https://i.pinimg.com/236x/5b/99/1e/5b991ea7942fcb4ae5ae4693ac256bae.jpg',
+    ];
+  }, [slide]);
+
   function changeSlide(i) {
     setSlide((slide) => slide + i);
   }
@@ -72,11 +80,12 @@ const Slider = (props) => {
   return (
     <Container>
       <div className="slider w-50 m-auto">
-        <img
-          className="d-block w-100"
-          src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg"
-          alt="slide"
-        />
+        {/* {getSomeImage().map((url, i) => {
+          return <img key={i} className="d-block w-100" src={url} alt="slide" />;
+          })
+        } */}
+        <Slide getSomeImage={getSomeImage} />
+
         <div className="text-center mt-5">
           Active slide {slide} <br /> {autoplay ? 'auto' : null}
         </div>
@@ -93,6 +102,22 @@ const Slider = (props) => {
         </div>
       </div>
     </Container>
+  );
+};
+
+const Slide = ({ getSomeImage }) => {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    setImages(getSomeImage());
+  }, [getSomeImage]);
+
+  return (
+    <>
+      {images.map((url, i) => (
+        <img key={i} className="d-block w-100" src={url} alt="slide" />
+      ))}
+    </>
   );
 };
 
