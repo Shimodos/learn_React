@@ -43,7 +43,7 @@ const CharList = (props) => {
   };
 
   const onError = () => {
-    setError((error) => true);
+    setError(true);
     setLoading((loading) => false);
   };
 
