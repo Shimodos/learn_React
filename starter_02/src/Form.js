@@ -1,0 +1,125 @@
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+
+// const validate = (values) => {
+//   const errors = {};
+
+//   if (!values.name) {
+//     errors.name = 'Обьязательное поле!';
+//   } else if (values.name.length < 2) {
+//     errors.name = 'Минимуму 2 символа';
+//   }
+//   if (!values.email) {
+//     errors.email = 'Обьязательное поле!';
+//   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+//     errors.email = 'Не верный email';
+//   }
+//   return errors;
+// };
+
+const Form = () => {
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      amount: '0',
+      currency: '',
+      text: '',
+      terms: false,
+    },
+    validationSchema: Yup.object({
+      name: Yup.string().min(2, 'Минимум 2 символа').required('Обязательное поле!'),
+      email: Yup.string().email(' Не верный email').required('Обязательное поле!'),
+      amount: Yup.number().min(5, 'Не мение 5').required('Обязательное поле!'),
+      currency: Yup.string().required('Выбирите валюту'),
+      text: Yup.string().min(10, 'Не мение 10 символов'),
+      rerms: Yup.boolean().required('Необходимо могласие!').oneOf([true], 'Необходимо могласие!'),
+    }),
+    onSubmit: (values) => console.log(JSON.stringify(values, null, 2)),
+  });
+
+  return (
+    <form className="form" onSubmit={formik.handleSubmit}>
+      <h2>Отправить пожертвование</h2>
+      <label htmlFor="name">Ваше имя</label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        value={formik.values.name}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+      />
+      {formik.errors.name && formik.touched.name ? (
+        <diw className="error">{formik.errors.name}</diw>
+      ) : null}
+      <label htmlFor="email">Ваша почта</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        value={formik.values.email}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+      />
+      {formik.errors.email && formik.touched.email ? (
+        <diw className="error">{formik.errors.email}</diw>
+      ) : null}
+      <label htmlFor="amount">Количество</label>
+      <input
+        id="amount"
+        name="amount"
+        type="number"
+        value={formik.values.amount}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+      />
+      {formik.errors.amount && formik.touched.amount ? (
+        <diw className="error">{formik.errors.amount}</diw>
+      ) : null}
+      <label htmlFor="currency">Валюта</label>
+      <select
+        id="currency"
+        name="currency"
+        value={formik.values.currency}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+      >
+        <option value="">Выберите валюту</option>
+        <option value="USD">USD</option>
+        <option value="UAH">UAH</option>
+        <option value="RUB">RUB</option>
+      </select>
+      {formik.errors.currency && formik.touched.currency ? (
+        <diw className="error">{formik.errors.currency}</diw>
+      ) : null}
+      <label htmlFor="text">Ваше сообщение</label>
+      <textarea
+        id="text"
+        name="text"
+        value={formik.values.text}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+      />
+      {formik.errors.text && formik.touched.text ? (
+        <diw className="error">{formik.errors.text}</diw>
+      ) : null}
+      <label className="checkbox">
+        <input
+          name="terms"
+          type="checkbox"
+          value={formik.values.terms}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />
+        Соглашаетесь с политикой конфиденциальности?
+      </label>
+      {formik.errors.terms && formik.touched.terms ? (
+        <diw className="error">{formik.errors.terms}</diw>
+      ) : null}
+      <button type="submit">Отправить</button>
+    </form>
+  );
+};
+
+export default Form;
