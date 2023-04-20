@@ -1,24 +1,5 @@
 {
-  "heroes": [
-    {
-      "id": 1,
-      "name": "Первый герой",
-      "description": "Первый герой в рейтинге!",
-      "element": "fire"
-    },
-    {
-      "id": "3841ba89-6532-42ca-85f6-181414de68ef",
-      "name": "sdsd",
-      "description": "vvcv",
-      "element": "water"
-    },
-    {
-      "id": "959824b2-dcfd-4ac0-9d36-557ec9f14125",
-      "name": "xxs",
-      "description": "xsx",
-      "element": "earth"
-    }
-  ],
+  "heroes": [],
   "filters": [
     {
       "name": "all",
