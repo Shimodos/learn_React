@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
+import { Clicker } from './Clicker';
+import Timer from './Timer';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [loading, setLoading] = useState(false);
-
-  const increment = () => {
-    setCount(count + 1);
-  };
+  const [isTimer, setTimer] = useState(false);
+  const [isClicker, setClicker] = useState(false);
 
   return (
     <div className="App">
-      <button onClick={increment}>{count}</button>
+      <h2>React App</h2>
+      <button onClick={(e) => setClicker(!isClicker)}>Toggle Clicker</button>
+      {isClicker && <Clicker />}
+      <h2>React Timer</h2>
+      <button onClick={() => setTimer(!isTimer)}>Toggle timer</button>
+      {isTimer && <Timer />}
     </div>
   );
 }
