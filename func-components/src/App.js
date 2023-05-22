@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Clicker } from './Clicker';
 import Timer from './Timer';
 import State from './State';
+// import Effect from './Effect';
 
 function App() {
   const [isTimer, setTimer] = useState(false);
@@ -16,6 +17,7 @@ function App() {
       <button onClick={() => setTimer(!isTimer)}>Toggle timer</button>
       {isTimer && <Timer />}
       <State />
+      {/* <Effect /> */}
     </div>
   );
 }
