@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import { Clicker } from './Clicker';
 // import Timer from './Timer';
 // import State from './State';
 // import Effect from './Effect';
-import { Context } from './Context';
-import { Books } from './components/Books';
+// import { Context } from './Context';
+// import { Books } from './components/Books';
+import { DualCounter } from './Callback';
 
 function App() {
   // const [isTimer, setTimer] = useState(false);
@@ -23,9 +24,10 @@ function App() {
   //   </div>
   // );
   return (
-    <Context>
-      <Books />
-    </Context>
+    // <Context>
+    //   <Books />
+    // </Context>
+    <DualCounter />
   );
 }
 
