@@ -43,7 +43,7 @@ function Shop() {
     setOrder(newOrder);
   };
 
-  const inQuantity = (itemId) => {
+  const incQuantity = (itemId) => {
     const newOrder = order.map((el) => {
       if (el.id === itemId) {
         const newQuantity = el.quantity + 1;
@@ -103,7 +103,7 @@ function Shop() {
           order={order}
           handleBasketShow={handleBasketShow}
           removeFromBasket={removeFromBasket}
-          inQuantity={inQuantity}
+          inQuantity={incQuantity}
           decQuantity={decQuantity}
         />
       )}
