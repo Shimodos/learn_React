@@ -1,9 +1,11 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 
 function Movies() {
   const { id } = useParams();
   const navigate = useNavigate();
-  console.log(navigate);
+  const value2 = useLocation();
+
+  console.log(value2);
   return (
     <>
       <h1>Some movie {id}</h1>

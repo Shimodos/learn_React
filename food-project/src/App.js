@@ -10,19 +10,21 @@ import Movies from './pages/Movies';
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <main className="container contant">
-        <Routes>
-          <Route path={'/'} element={<Home />} />
-          <Route path={'/about'} element={<About />} />
-          <Route path={'/contact'} element={<Contact />} />
-          <Route path={'/movies/:id'} element={<Movies />} />
-          <Route path={'*'} element={<NoteFound />} />
-        </Routes>
-      </main>
-      <Footer />
-    </Router>
+    <>
+      <Router>
+        <Header />
+        <main className="container contant">
+          <Routes>
+            <Route path={'/'} element={<Home />} />
+            <Route path={'/about'} element={<About />} />
+            <Route path={'/contact'} element={<Contact />} />
+            <Route path={'/movies/:id'} element={<Movies />} />
+            <Route path={'*'} element={<NoteFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </Router>
+    </>
   );
 }
 
