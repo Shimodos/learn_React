@@ -16,7 +16,7 @@ nav {
   padding: 0 1rem;
 }
 
-.content {
+.contant {
   min-height: calc(100vh - 70px - 64px);
   padding: 1.5rem;
 }
@@ -35,4 +35,19 @@ nav {
 
 .card-content {
   flex-grow: 1;
+}
+
+img. iframe {
+  max-width: 100%;
+  /* object-fit: cover; */
+}
+iframe {
+  width: 600px;
+  height: 400px;
+
+
+}
+
+.btn {
+  background-color:  #ffab40;
 }

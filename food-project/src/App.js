@@ -6,7 +6,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
 import NoteFound from './pages/NotFound';
-import Movies from './pages/Movies';
+import Category from './pages/Category';
+import Recipe from './pages/Recipe';
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
             <Route path={'/'} element={<Home />} />
             <Route path={'/about'} element={<About />} />
             <Route path={'/contact'} element={<Contact />} />
-            <Route path={'/movies/:id'} element={<Movies />} />
             <Route path={'*'} element={<NoteFound />} />
+            <Route path={'/category/:name'} element={<Category />} />
+            <Route path={'/meal/:id'} element={<Recipe />} />
           </Routes>
         </main>
         <Footer />
