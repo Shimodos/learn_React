@@ -13,7 +13,7 @@ function Category() {
   useEffect(() => {
     getFilteredCategory(name).then((data) => setMeals(data.meals));
   }, [name]);
-
+  
   return (
     <>
       <button className="btn #ffab40 orange accent-2" onClick={() => goBack(-1)}>
