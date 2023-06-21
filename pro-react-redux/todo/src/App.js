@@ -1,21 +1,24 @@
+import ToDoList from "./components/todo-list";
+import AppHeader from "./components/app-header";
+import SearchPanel from "./components/search-panel";
 
-import './App.css';
+const App = () => {
 
-function App() {
+  // const isLoggedIn = true;
+  // const loginBox = <span>Log in please</span>;
+  // const welcomeBox = <span>Welcome back</span>;
+
+  const value = '<script>alert("Hello")</script>';
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Welcome to react</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        {/*<span>{(new Date()).toString()}</span>*/}
+        {/*{isLoggedIn ? welcomeBox : loginBox}*/}
+        {value}
+        <AppHeader />
+        <SearchPanel />
+        <ToDoList />
+      </div>
   );
 }
 
