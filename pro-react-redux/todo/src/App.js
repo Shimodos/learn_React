@@ -1,7 +1,7 @@
-import ToDoList from './components/todo-list';
-import AppHeader from './components/app-header';
-import SearchPanel from './components/search-panel';
-import ItemStatusFilter from './components/item-status-filter';
+import ToDoList from './components/todo-list/todo-list';
+import AppHeader from './components/app-header/app-header';
+import SearchPanel from './components/search-panel/search-panel';
+import ItemStatusFilter from './components/item-status-filter/item-status-filter';
 
 import './index.css';
 
@@ -19,7 +19,6 @@ const App = () => {
         <SearchPanel />
         <ItemStatusFilter />
       </div>
-
       <ToDoList todos={todoData} />
     </div>
   );
