@@ -2,3 +2,9 @@
     display: flex;
     margin-top: 20px;
 }
+
+.item-add-form .form-control {
+    width: auto;
+    flex-grow: 1;
+    margin-right: 3px;
+}
