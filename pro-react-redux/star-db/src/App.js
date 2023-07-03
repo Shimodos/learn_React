@@ -1,28 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Header from './components/header/header';
 import RandomPlanet from './components/random-planet/random-planet';
-import ItemList from './components/item-list/item-list';
-import PersonDetails from './components/person-details/person-details';
+import PeoplePage from './components/people-page/people-page';
+
+import SwapiService from './services/swapi-service';
 
 import './app.scss';
 
-const App = () => {
-  return (
-    <div>
-      <Header />
-      <RandomPlanet />
+export default class App extends Component {
+  swapiService = new SwapiService();
 
-      <div className="row mb2 m-lg-1">
-        <div className="col-md-6">
-          <ItemList />
-        </div>
-        <div className="col-md-6">
-          <PersonDetails />
-        </div>
+  state = {
+    showRandomPlanet: true,
+  };
+
+  toggleRandomPlanet = () => {
+    this.setState((state) => {
+      return {
+        showRandomPlanet: !state.showRandomPlanet,
+      };
+    });
+  };
+
+  render() {
+    const planet = this.state.showRandomPlanet ? <RandomPlanet /> : null;
+
+    // const {
+    //   getPerson,
+    //   getStarship,
+    //   getPersonImage,
+    //   getStarshipImage,
+    //   getAllPeople,
+    //   getAllPlanets,
+    // } = this.swapiService;
+
+    return (
+      <div>
+        <Header />
+        {planet}
+
+        <button className="toggle-planet btn btn-warning btn-lg" onClick={this.toggleRandomPlanet}>
+          Toggle Random Planet
+        </button>
+
+        {/*<RandomPlanet />*/}
+
+        <PeoplePage />
+        <PeoplePage />
+        <PeoplePage />
       </div>
-    </div>
-  );
-};
-
-export default App;
+    );
+  }
+}
