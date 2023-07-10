@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function UseEffect() {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
   const [visible, setVisible] = useState(true);
 
   if (visible) {
@@ -12,6 +12,7 @@ function UseEffect() {
         <ClassCounter value={value} />
         <HookCounter value={value} />
         <Notification />
+        <PlanetInfo id={value} />
       </div>
     );
   } else {
@@ -58,5 +59,30 @@ class ClassCounter extends React.Component {
     return <p>{this.props.value}</p>;
   }
 }
+
+// Custom hook
+const usePlanetInfo = (id) => {
+  const [name, setName] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`https://swapi.dev/api/planets/${id}/`)
+      .then((res) => res.json())
+      .then((data) => !cancelled && setName(data.name));
+    return () => (cancelled = true);
+  }, [id]);
+
+  return name;
+};
+
+const PlanetInfo = ({ id }) => {
+  const name = usePlanetInfo(id);
+
+  return (
+    <div>
+      {id} - {name}
+    </div>
+  );
+};
 
 export default UseEffect;
