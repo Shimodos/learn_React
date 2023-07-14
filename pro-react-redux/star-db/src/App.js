@@ -11,15 +11,29 @@ import PeoplePage from './components/pages/people-page';
 import PlanetPage from './components/pages/planet-page';
 import StarshipPage from './components/pages/starship-page';
 import StarshipDetails from './components/sw-components/starship-ditails';
+import LoginPage from './components/pages/login-page';
+import SecretPage from './components/pages/secret-page';
 
 import './app.scss';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 export default class App extends Component {
+  state = {
+    isLoggedIn: false,
+  };
+
+  onLogin = () => {
+    this.setState({
+      isLoggedIn: true,
+    });
+  };
+
   swapiService = new SwapiService();
 
   render() {
+    const { isLoggedIn } = this.state;
+
     return (
       <ErrorBoundary>
         <SwapiServiceProvider value={this.swapiService}>
@@ -30,8 +44,9 @@ export default class App extends Component {
 
               <Routes>
                 <Route path={'/'} element={<h2>Welcome to StarDB</h2>} />
+                <Route path={'*'} element={<h2>This page does not exist</h2>} />
                 <Route
-                  path={'/people'}
+                  path={'/people/:id?'}
                   element={
                     <>
                       <h2>People</h2>
@@ -57,14 +72,12 @@ export default class App extends Component {
                     </>
                   }
                 />
+                <Route path={'/starships/:id'} element={<StarshipDetails />} />
                 <Route
-                  path={'/starships/:id'}
-                  element={<StarshipDetails />}
-                  render={({ match }) => {
-                    const { id } = match.params;
-                    return <StarshipDetails itemId={id} />;
-                  }}
+                  path={'/login'}
+                  element={<LoginPage isLoggedIn={isLoggedIn} onLogin={this.onLogin} />}
                 />
+                <Route path={'/secret'} element={<SecretPage isLoggedIn={isLoggedIn} />} />
               </Routes>
             </div>
           </Router>
