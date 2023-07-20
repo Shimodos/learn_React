@@ -1,5 +1,5 @@
 import React from 'react';
-import BookList from '../bool-list/bool-list';
+import BookList from '../book-list/book-list';
 
 const HomePage = () => {
   return <BookList />;

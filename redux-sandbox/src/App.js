@@ -1,12 +1,12 @@
-function App() {
+function AppApp() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="AppApp">
+      <header className="AppApp-header">
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/AppApp.js</code> and save to reload.
         </p>
         <a
-          className="App-link"
+          className="AppApp-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
@@ -18,4 +18,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppApp;

@@ -5,11 +5,16 @@ export default class BookstoreService {
         id: 1,
         title: 'Production-Ready Microservices',
         author: 'Susan J. Fowler',
+        price: 32,
+        coverImage:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNAVIuV8rKVmFpYM1RNWR64HJXV6SFh_BUDQh7KvP_fBQjPu43',
       },
       {
         id: 2,
         title: 'Release It!',
         author: 'Michael T. Nygard',
+        price: 45,
+        coverImage: 'https://m.media-amazon.com/images/I/419zAwJJH4L.jpg',
       },
     ];
   }

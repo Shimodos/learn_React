@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import BoolListItem from '../bool-list-item/bool-list-item';
+import BookListItem from '../book-list-item/book-list-item';
 import { connect } from 'react-redux';
 
 import withBookstoreService from '../hoc/with-bookstore-service';
 import { booksLoaded } from '../../actions';
 import compose from '../../utils';
 
-import './bool-list.scss';
+import './book-list.scss';
 
 class BookList extends Component {
   componentDidMount() {
@@ -20,11 +20,11 @@ class BookList extends Component {
   render() {
     const { books } = this.props;
     return (
-      <ul>
+      <ul className="book-list">
         {books.map((book) => {
           return (
             <li key={book.id}>
-              <BoolListItem book={book} />
+              <BookListItem book={book} />
             </li>
           );
         })}

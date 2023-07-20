@@ -1,16 +1,16 @@
 import logo from './logo.svg';
-import './App.css';
+import './AppApp.css';
 
-function App() {
+function AppApp() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className="AppApp">
+      <header className="AppApp-header">
+        <img src={logo} className="AppApp-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/AppApp.js</code> and save to reload.
         </p>
         <a
-          className="App-link"
+          className="AppApp-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
@@ -22,4 +22,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppApp;

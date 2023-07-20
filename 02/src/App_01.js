@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import BootstrapTest from './BootstrtapTest';
 
-import './App.css';
+import './AppApp.css';
 
 // const Header = () => {
 //   return <h2>Hello worls!</h2>;
@@ -157,9 +157,9 @@ class Counter extends Component {
   }
 }
 
-function App() {
+function AppApp() {
   return (
-    <Wrapper className="App">
+    <Wrapper className="AppApp">
       <Counter render={(counter) => <Message counter={counter} />} />
 
       <HelloGreating />
@@ -184,4 +184,4 @@ function App() {
 }
 
 export { Header };
-export default App;
+export default AppApp;
