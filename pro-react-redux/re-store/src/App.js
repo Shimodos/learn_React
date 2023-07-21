@@ -16,24 +16,24 @@ const bookstoreService = new BookstoreService();
 
 const App = () => {
   return (
-    <main role="main" className="container">
-      <ShopHeader numItems={5} total={210} />
-      <Provider store={store}>
-        <ErrorBundery>
-          <BookstoreServiceProvider value={bookstoreService}>
-            <Router>
+    <ErrorBundery>
+      <Router>
+        <main role="main" className="container">
+          <ShopHeader numItems={5} total={210} />
+          <Provider store={store}>
+            <BookstoreServiceProvider value={bookstoreService}>
               <div className="App">
                 <Routes>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/card" element={<CardPage />} />
                 </Routes>
               </div>
-            </Router>
-          </BookstoreServiceProvider>
-        </ErrorBundery>
-      </Provider>
-      <ShoppingCartTable />
-    </main>
+            </BookstoreServiceProvider>
+          </Provider>
+          <ShoppingCartTable />
+        </main>
+      </Router>
+    </ErrorBundery>
   );
 };
 
