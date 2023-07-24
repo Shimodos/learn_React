@@ -1,5 +1,13 @@
 .shopping-cart-table {
   margin-top: 45px;
+  .table__action {
+      display: flex;
+      justify-content: end;
+  }.table__button {
+      display: flex;
+      justify-content: end;
+  }
+
 }
 
 .shopping-cart-table .total {
@@ -16,3 +24,4 @@
 .shopping-cart-table tbody {
     vertical-align: middle;
 }
+

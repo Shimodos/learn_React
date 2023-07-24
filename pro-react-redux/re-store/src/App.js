@@ -17,10 +17,10 @@ const bookstoreService = new BookstoreService();
 const App = () => {
   return (
     <ErrorBundery>
-      <Router>
-        <main role="main" className="container">
-          <ShopHeader numItems={5} total={210} />
-          <Provider store={store}>
+      <Provider store={store}>
+        <Router>
+          <main role="main" className="container">
+            <ShopHeader numItems={5} total={210} />
             <BookstoreServiceProvider value={bookstoreService}>
               <div className="App">
                 <Routes>
@@ -29,10 +29,10 @@ const App = () => {
                 </Routes>
               </div>
             </BookstoreServiceProvider>
-          </Provider>
-          <ShoppingCartTable />
-        </main>
-      </Router>
+            <ShoppingCartTable />
+          </main>
+        </Router>
+      </Provider>
     </ErrorBundery>
   );
 };
